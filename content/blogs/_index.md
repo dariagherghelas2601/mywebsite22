@@ -6,4 +6,4 @@ date: 2017-10-31T22:27:21-05:00
 draft: false
 ---
 
-Here is my latest work from my Applied Statistics class.
+Here is my latest work from the Applied Statistics class.
