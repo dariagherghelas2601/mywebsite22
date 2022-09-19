@@ -46,7 +46,7 @@ library(openintro)
 
 Using my data manipulation and visualisation skills, I used the Brexit results dataframe and plotted Brexit voting results for each political affiliation. 
 
-```{r load_brexit_data, warning=FALSE, message=FALSE}
+```{r load_results, warning=FALSE, message=FALSE}
 brexit_results <- read_csv("https://raw.githubusercontent.com/kostis-christodoulou/am01/master/data/brexit_results.csv")
 
 glimpse(brexit_results)

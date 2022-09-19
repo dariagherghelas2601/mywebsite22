@@ -110,10 +110,10 @@ disqusShortname = ""
       url = "blogs/brexit_plot"
 
     [[params.tiles.showcase]]
-      title = "Ipsum"
-      subtitle = "Nisl Sed Aliquam"
-      image = "pic04.jpg"
-      url = "blogs/ipsum"
+      title = "Pay discrimination at Omega Group plc"
+      subtitle = "Salaries are not the same for male and female executives at Omega Group plc. I am analyzing whether there is indeed a significant difference between the salaries of men and women."
+      image = "pay_discrimination.jpg"
+      url = "blogs/pay_discrimination"
 
     [[params.tiles.showcase]]
       title = "Consequat"
