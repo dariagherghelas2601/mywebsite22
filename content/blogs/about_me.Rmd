@@ -1,0 +1,29 @@
+---
+categories:  
+- ""    #the front matter should be like the one found in, e.g., blog2.md. It cannot be like the normal Rmd we used
+- ""
+date: "2021-09-30"
+description: About me # the title that will show up once someone gets to this page
+draft: false
+image: about_me.jpg
+
+keywords: ""
+slug: about_me # slug is the shorthand URL address... no spaces plz
+title: About me
+---
+
+```{r load-libraries, warning=FALSE, message=FALSE, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(gapminder)  # gapminder dataset
+library(here)
+library(janitor)
+```
+
+I was born in **Romania** and spent my childhood and teenage years in **Bucharest**.  In my free time, I enjoy travelling, going to the gym, walking around the city and discovering new places and going out with my friends
+
+## Education
+After high school, I started my Bachelors in Systems Engineering at [Polytechnica University of Bucharest]( https://upb.ro/en/). I graduated from college in June 2022, right before starting my Masters at [London Business School](https://www.london.edu/masters-degrees/masters-in-analytics-and-management). 
+
+## Work experience
+I started my professional career as a Software Engineer working at a VC-backed start-up. After 10 months in the role, I realized programming is not what I want to do going forward so I started to explore other career paths and look for a more social role. I decided to go into Venture Capital and joined Speedinvest, an early-stage VC fund with over 500m AUM. 
+
