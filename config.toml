@@ -82,7 +82,7 @@ disqusShortname = ""
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
     title = "Hi, my name is Daria"
-    subtitle = "My portfolio website\n RELEASED UNDER THE CREATIVE COMMONS."
+    subtitle = "Welcome to my portfolio website"
     buttonText = "Get Started"
 
 
@@ -98,10 +98,10 @@ disqusShortname = ""
       url = "blogs/risk_return"
 
     [[params.tiles.showcase]]
-      title = "Tempus"
-      subtitle = "Feugiat Amet Tempus"
-      image = "pic02.jpg"
-      url = "blogs/tempus"
+      title = "Biden's Approval Margins"
+      subtitle = "A calculation of the president's approval rating, accounting for each poll's quality, recency, sample size and partisan lean."
+      image = "biden_approval.png"
+      url = "blogs/biden_approval"
 
     [[params.tiles.showcase]]
       title = "Magna"

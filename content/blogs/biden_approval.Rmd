@@ -1,0 +1,106 @@
+---
+title: "Biden's Approval Margins"
+description: "A calculation of the president's approval rating, accounting for each poll's quality, recency, sample size and partisan lean."
+slug: "biden_approval"
+image: biden_approval.png
+keywords: ""
+categories: 
+  - ""
+- ""
+date: 2017-10-31T22:26:09-05:00
+draft: false
+---
+  
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+```{r load-libraries, include=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(here)
+library(skimr)
+library(janitor)
+library(httr)
+library(readxl)
+library(vroom)
+library(wbstats)
+library(countrycode)
+library(patchwork)
+library(gganimate)
+```
+
+# Biden's Approval Margins
+                        
+As we saw in class, fivethirtyeight.com has detailed data on [all polls 
+that track the president's approval](https://projects.fivethirtyeight.com/biden-approval-ratings)
+
+```{r, cache=TRUE}
+# Import approval polls data directly off fivethirtyeight website
+approval_polllist <- read_csv('https://projects.fivethirtyeight.com/biden-approval-data/approval_polllist.csv') 
+
+#glimpse(approval_polllist)
+
+# Use `lubridate` to fix dates, as they are given as characters.
+approval_polllist$modeldate <- mdy(approval_polllist$modeldate)
+approval_polllist$startdate <- mdy(approval_polllist$startdate)
+approval_polllist$enddate <- mdy(approval_polllist$enddate)
+approval_polllist$createddate <- mdy(approval_polllist$createddate)
+
+glimpse(approval_polllist)
+
+```
+
+## Create a plot
+
+What I would like you to do is to calculate the average net approval
+rate (approve- disapprove) for each week since he got into office. I
+want you plot the net approval for each week in 2022, along with its 95%
+confidence interval. There are various dates given for each poll, please
+use `enddate`, i.e., the date the poll ended.
+
+```{r}
+# Calculate the average net approval rate for each week and its 95% confidence interval
+avg_approval_rate <- approval_polllist %>%
+  mutate(week = week(enddate), #get week out of the enddate
+         year = year(enddate), #get year out of the enddate
+         avg_net_approval = (approve-disapprove)) %>% #calculate the average net approval
+  filter(year == 2022) %>%  #fitler by year 2022
+  group_by(subgroup,week) %>%  #group by subgroup and week
+  summarize(avg_net_approval, 
+            mean = mean(avg_net_approval, na.rm = TRUE),  #calcualte mean of the average net approval
+            sd = sd(avg_net_approval,na.rm = TRUE),  #calculate standard deviation of the average net approval
+            count = n(),  
+            error=(qt(0.95, df = count - 1)*sd/sqrt(count)), #calculate the margin of error
+            diff_rate_low  = mean - error,  #lower bound of the 95% confidence interval
+            diff_rate_high = mean + error)  #upper bound of the 95% confidence interval
+
+#Plot the data
+ggplot(avg_approval_rate) +
+  aes(x=week, y = mean) +  #plotn the average net approval
+  geom_line()+
+  facet_wrap(~subgroup, nrow = 3, strip.position="right")+  #group by subgroup and devide in 3 different graphs
+  geom_ribbon(alpha=0.3, fill = "orange") +  #plot the confidence interval
+  aes(ymin = diff_rate_low, ymax = diff_rate_high, colour = subgroup) +
+  theme(legend.position="none") +
+  labs(title = "Biden's Net Approval Ratings in 2022", 
+              subtitle = "Weekly Data, Approve - Disapprove, %", 
+              caption = "Source: https://projects.fivethirtyeight.com/biden-approval-data",
+              x = "Week in 2022",
+              y = element_blank())
+```
