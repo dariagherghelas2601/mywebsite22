@@ -92,6 +92,12 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
+      title = "More about me"
+      subtitle = ""
+      image = "dija.jpg"
+      url = "blogs/risk_return"
+    
+    [[params.tiles.showcase]]
       title = "Risk-Return of DJIA stocks"
       subtitle = "Analyze returns of financial stocks"
       image = "dija.jpg"
@@ -122,9 +128,9 @@ disqusShortname = ""
       url = "blogs/gdp_components"
 
     [[params.tiles.showcase]]
-      title = "CV"
-      subtitle = "Feugiat Amet Tempus"
-      image = "pic06.jpg"
+      title = "Resume"
+      subtitle = "Take a look at my CV"
+      image = "resume.jpg"
       url = "blogs/Daria_Gherghelas_CV.pdf"
     # You can make more showcases by copy and pasting the code above
 
