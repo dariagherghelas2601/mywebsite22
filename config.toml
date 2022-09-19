@@ -48,7 +48,15 @@ disqusShortname = ""
       url = "#"
 
     [[params.navigation.links]]
-      name = "Blogs"
+      name = "About me"
+      url = "blogs/about_me"
+      
+    [[params.navigation.links]]
+      name = "Resume"
+      url = "blogs/Daria_Gherghelas_CV.pdf"
+      
+    [[params.navigation.links]]
+      name = "Projects"
       url = "blogs"
 
 #    [[params.navigation.links]]
@@ -67,9 +75,9 @@ disqusShortname = ""
     #    url = "UrlOfLink"
 
     # Button Style 1
-    [[params.navigation.button1]]
-      name = "My projects"
-      url = "blogs"
+    #[[params.navigation.button1]]
+     # name = "My projects"
+    #  url = "blogs"
 
     # Button Style 2
     #[[params.navigation.button2]]
@@ -96,12 +104,12 @@ disqusShortname = ""
       subtitle = ""
       image = "about_me.jpg"
       url = "blogs/about_me"
-    
+      
     [[params.tiles.showcase]]
-      title = "Risk-Return of DJIA stocks"
-      subtitle = "Analyze returns of financial stocks"
-      image = "dija.jpg"
-      url = "blogs/risk_return"
+      title = "Resume"
+      subtitle = "Take a look at my CV"
+      image = "resume.jpg"
+      url = "blogs/Daria_Gherghelas_CV.pdf"
 
     [[params.tiles.showcase]]
       title = "Biden's Approval Margins"
@@ -126,12 +134,12 @@ disqusShortname = ""
       subtitle = "See how GDP and its components have changed over time, and compare different countries and how much each component contributes to that country's GDP."
       image = "gdp_components.jpg"
       url = "blogs/gdp_components"
-
+      
     [[params.tiles.showcase]]
-      title = "Resume"
-      subtitle = "Take a look at my CV"
-      image = "resume.jpg"
-      url = "blogs/Daria_Gherghelas_CV.pdf"
+      title = "Risk-Return of DJIA stocks"
+      subtitle = "Analyze returns of financial stocks"
+      image = "dija.jpg"
+      url = "blogs/risk_return"
     # You can make more showcases by copy and pasting the code above
 
   [params.blog]
