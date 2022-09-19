@@ -104,10 +104,10 @@ disqusShortname = ""
       url = "blogs/biden_approval"
 
     [[params.tiles.showcase]]
-      title = "Magna"
-      subtitle = "Lorem Etiam Nullam"
-      image = "pic03.jpg"
-      url = "blogs/magna"
+      title = "How political affiliation translated to Brexit Voting"
+      subtitle = ""
+      image = "brexit.jpg"
+      url = "blogs/brexit_plot"
 
     [[params.tiles.showcase]]
       title = "Ipsum"
